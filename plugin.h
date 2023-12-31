@@ -5,4 +5,8 @@ class IPlugin {
   int id();
 };
 
+typedef IPlugin *(*GetPluginFunc)();
+
+extern "C" {
 IPlugin *getPlugin();
+}
