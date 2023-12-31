@@ -3,7 +3,7 @@
 class IPlugin {
  public:
   IPlugin();
-  ~IPlugin();
+  virtual ~IPlugin();
   virtual int id();
 };
 
