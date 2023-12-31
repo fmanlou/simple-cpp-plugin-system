@@ -15,6 +15,8 @@ int main() {
 
   if (!getPluginFunc) {
     std::cout << "resolve GetPluginFunc failed.\n";
+    dlclose(library);
+    return -1;
   }
 
   return 0;
