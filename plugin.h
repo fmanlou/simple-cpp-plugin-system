@@ -2,6 +2,8 @@
 
 class IPlugin {
  public:
+  IPlugin();
+  ~IPlugin();
   virtual int id();
 };
 

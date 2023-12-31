@@ -24,5 +24,7 @@ int main() {
 
   assert(plugin->id() == 0);
 
+  dlclose(library);
+
   return 0;
 }
