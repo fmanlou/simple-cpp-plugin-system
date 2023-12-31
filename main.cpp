@@ -1,5 +1,6 @@
 #include <dlfcn.h>
 
+#include <cassert>
 #include <iostream>
 
 #include "plugin.h"
@@ -18,6 +19,10 @@ int main() {
     dlclose(library);
     return -1;
   }
+
+  auto plugin = getPluginFunc();
+
+  assert(plugin->id() == 0);
 
   return 0;
 }

@@ -2,7 +2,7 @@
 
 class IPlugin {
  public:
-  int id();
+  virtual int id();
 };
 
 typedef IPlugin *(*GetPluginFunc)();
