@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "plugin.h"
 
 class NotifyPlugin : public IPlugin {
@@ -8,8 +10,9 @@ class NotifyPlugin : public IPlugin {
   virtual ~NotifyPlugin();
   int id() const override;
   void init() override;
+  void notify(const std::string& message);
 };
 
 extern "C" {
-IPlugin *createNotifyPlugin();
+IPlugin* createNotifyPlugin();
 }

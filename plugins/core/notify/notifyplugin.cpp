@@ -14,7 +14,11 @@ int NotifyPlugin::id() const { return 0; }
 
 void NotifyPlugin::init() {}
 
-IPlugin *createNotifyPlugin() {
+void NotifyPlugin::notify(const std::string& message) {
+  std::cout << "Notify: " << message << std::endl;
+}
+
+IPlugin* createNotifyPlugin() {
   static NotifyPlugin plugin;
   return &plugin;
 }

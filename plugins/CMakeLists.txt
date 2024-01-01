@@ -1,2 +1,2 @@
-add_subdirectory(notify)
+add_subdirectory(core)
 add_subdirectory(test)

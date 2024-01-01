@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "plugins/core/notify/notifyplugin.h"
 #include "pluginsystem.h"
 
 TestPlugin::TestPlugin() {
@@ -14,7 +15,12 @@ TestPlugin::~TestPlugin() {
 
 int TestPlugin::id() const { return 1; }
 
-void TestPlugin::init() { std::cout << pluginSystem_->getPlugin(0); }
+void TestPlugin::init() {
+  auto plugin = dynamic_cast<NotifyPlugin *>(pluginSystem_->getPlugin(0));
+  if (plugin) {
+    plugin->notify("Message from test plugin.");
+  }
+}
 
 IPlugin *createTestPlugin() {
   static TestPlugin plugin;
