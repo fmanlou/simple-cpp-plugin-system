@@ -8,7 +8,7 @@ IPlugin::~IPlugin() { std::cout << "Destory IPlugin " << this << " \n"; }
 
 int IPlugin::id() { return 0; }
 
-IPlugin *getPlugin() {
+IPlugin *createPlugin() {
   static IPlugin plugin;
   return &plugin;
 }

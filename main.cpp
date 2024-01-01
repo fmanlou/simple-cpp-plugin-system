@@ -11,16 +11,16 @@ int main() {
     std::cout << "open library failed\n";
   }
 
-  GetPluginFunc getPluginFunc =
-      reinterpret_cast<GetPluginFunc>(dlsym(library, "getPlugin"));
+  CreatePluginFunc createPluginFunc =
+      reinterpret_cast<CreatePluginFunc>(dlsym(library, "createPlugin"));
 
-  if (!getPluginFunc) {
-    std::cout << "resolve GetPluginFunc failed.\n";
+  if (!createPluginFunc) {
+    std::cout << "resolve createPluginFunc failed.\n";
     dlclose(library);
     return -1;
   }
 
-  auto plugin = getPluginFunc();
+  auto plugin = createPluginFunc();
 
   assert(plugin->id() == 0);
 

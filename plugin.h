@@ -7,8 +7,8 @@ class IPlugin {
   virtual int id();
 };
 
-typedef IPlugin *(*GetPluginFunc)();
+typedef IPlugin *(*CreatePluginFunc)();
 
 extern "C" {
-IPlugin *getPlugin();
+IPlugin *createPlugin();
 }
