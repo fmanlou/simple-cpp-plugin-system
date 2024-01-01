@@ -13,7 +13,7 @@ std::string resolveLibraryName(const std::string name) {
 IPlugin *PluginLoader::load(const std::string name) {
   void *library = dlopen(name.c_str(), RTLD_LAZY);
   if (!library) {
-    std::cout << "open library failed\n";
+    std::cerr << "Error: Unable to open library - " << dlerror() << std::endl;
     return nullptr;
   }
 

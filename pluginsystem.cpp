@@ -4,6 +4,7 @@
 
 void PluginSystem::loadPlugins() {
   auto plugin = PluginLoader::load("libNotifyPlugin.so");
+  plugin->setPluginSystem(this);
   if (plugin) {
     plugins_.emplace(plugin->id(), plugin);
   }
