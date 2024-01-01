@@ -12,6 +12,8 @@ NotifyPlugin::~NotifyPlugin() {
 
 int NotifyPlugin::id() const { return 0; }
 
+void NotifyPlugin::init() {}
+
 IPlugin *createNotifyPlugin() {
   static NotifyPlugin plugin;
   return &plugin;

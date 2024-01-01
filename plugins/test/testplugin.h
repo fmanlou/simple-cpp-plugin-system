@@ -2,14 +2,14 @@
 
 #include "plugin.h"
 
-class NotifyPlugin : public IPlugin {
+class TestPlugin : public IPlugin {
  public:
-  NotifyPlugin();
-  virtual ~NotifyPlugin();
+  TestPlugin();
+  virtual ~TestPlugin();
   int id() const override;
   void init() override;
 };
 
 extern "C" {
-IPlugin *createNotifyPlugin();
+IPlugin *createTestPlugin();
 }

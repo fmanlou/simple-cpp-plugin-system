@@ -7,6 +7,7 @@ class IPlugin {
   IPlugin() = default;
   virtual ~IPlugin() = default;
   virtual int id() const = 0;
+  virtual void init() = 0;
 
   void setPluginSystem(IPluginSystem *ptr);
 

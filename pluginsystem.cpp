@@ -8,6 +8,21 @@ void PluginSystem::loadPlugins() {
   if (plugin) {
     plugins_.emplace(plugin->id(), plugin);
   }
+
+  plugin = PluginLoader::load("libTestPlugin.so");
+  plugin->setPluginSystem(this);
+  if (plugin) {
+    plugins_.emplace(plugin->id(), plugin);
+  }
+
+  auto iter = plugins_.begin();
+  while (iter != plugins_.end()) {
+    plugin = iter->second;
+    if (plugin) {
+      plugin->init();
+    }
+    iter++;
+  }
 }
 
 IPlugin* PluginSystem::getPlugin(int id) {
