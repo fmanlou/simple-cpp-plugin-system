@@ -6,16 +6,17 @@
 #include "plugin.h"
 
 int main() {
-  void *library = dlopen("libplugin.so", RTLD_LAZY);
+  void *library = dlopen("libNotifyPlugin.so", RTLD_LAZY);
   if (!library) {
     std::cout << "open library failed\n";
+    return -1;
   }
 
   CreatePluginFunc createPluginFunc =
-      reinterpret_cast<CreatePluginFunc>(dlsym(library, "createPlugin"));
+      reinterpret_cast<CreatePluginFunc>(dlsym(library, "createNotifyPlugin"));
 
   if (!createPluginFunc) {
-    std::cout << "resolve createPluginFunc failed.\n";
+    std::cout << "Resolve createPluginFunc failed.\n";
     dlclose(library);
     return -1;
   }

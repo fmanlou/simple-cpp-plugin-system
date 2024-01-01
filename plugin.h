@@ -2,13 +2,9 @@
 
 class IPlugin {
  public:
-  IPlugin();
-  virtual ~IPlugin();
-  virtual int id();
+  IPlugin() = default;
+  virtual ~IPlugin() = default;
+  virtual int id() const = 0;
 };
 
 typedef IPlugin *(*CreatePluginFunc)();
-
-extern "C" {
-IPlugin *createPlugin();
-}
