@@ -1,6 +1,7 @@
-#include "pluginloader.h"
+#include "pluginsystem.h"
 
 int main() {
-  PluginLoader::load("libNotifyPlugin.so");
+  PluginSystem pluginSystem;
+  pluginSystem.loadPlugins();
   return 0;
 }
